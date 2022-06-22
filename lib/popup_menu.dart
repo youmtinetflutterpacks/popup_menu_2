@@ -1,14 +1,12 @@
-library popup_menu_2;
-
 import 'dart:core';
 import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:popup_menu_2/popup_menu_item.dart';
 import 'popup_menu_item_widget.dart';
 import 'triangle_painter.dart';
 
-typedef MenuClickCallback = Function(MenuItemProvider item);
 typedef PopupMenuStateChanged = Function(bool isShow);
 
 class PopupMenu {
@@ -337,45 +335,4 @@ class PopupMenu {
       stateChangd!(false);
     }
   }
-}
-
-enum MenuType { big, oneLine }
-
-abstract class MenuItemProvider {
-  String get menuTitle;
-  Widget? get menuImage;
-  TextStyle get menuTextStyle;
-  TextAlign get menuTextAlign;
-  Function get clickAction;
-}
-
-class MenuItem extends MenuItemProvider {
-  Widget? image;
-  String title;
-  TextStyle textStyle;
-  TextAlign textAlign;
-  Function press;
-
-  MenuItem({
-    this.title = "",
-    this.image,
-    required this.textStyle,
-    required this.textAlign,
-    required this.press,
-  });
-
-  @override
-  Function get clickAction => press;
-
-  @override
-  Widget? get menuImage => image;
-
-  @override
-  String get menuTitle => title;
-
-  @override
-  TextStyle get menuTextStyle => textStyle;
-
-  @override
-  TextAlign get menuTextAlign => textAlign;
 }

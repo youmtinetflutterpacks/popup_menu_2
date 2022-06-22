@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'popup_menu.dart';
+import 'popup_menu_item.dart';
 
 class MenuItemWidget extends StatefulWidget {
   final MenuItemProvider item;
