@@ -1,7 +1,7 @@
 # Popup menu 2
 **SCREENSHOT** 
 
-![Popup menu 2](example.png)
+![Popup menu 2](https://raw.githubusercontent.com/ymrabti/popup_menu_2/main/example.png)
 
 
 
