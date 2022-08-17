@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'popup_menu.dart';
 import 'popup_menu_item.dart';
@@ -30,7 +31,7 @@ class MenuItemWidget extends StatefulWidget {
 class _MenuItemWidgetState extends State<MenuItemWidget> {
   var highlightColor = const Color(0x55000000);
   var color = const Color(0xff232323);
-
+  bool itemWaiting = false;
   @override
   void initState() {
     color = widget.backgroundColor;
@@ -58,6 +59,9 @@ class _MenuItemWidgetState extends State<MenuItemWidget> {
       },
       onTap: () {
         // widget.item.clickAction();
+        setState(() {
+          itemWaiting = true;
+        });
         widget.clickCallback(widget.item);
       },
       child: Container(
@@ -85,7 +89,19 @@ class _MenuItemWidgetState extends State<MenuItemWidget> {
           SizedBox(
             width: 30.0,
             height: 30.0,
-            child: widget.item.menuImage,
+            child: AnimatedSwitcher(
+              child: itemWaiting
+                  ? CupertinoActivityIndicator(
+                      color: Color.fromRGBO(
+                        255 - widget.backgroundColor.red,
+                        255 - widget.backgroundColor.green,
+                        255 - widget.backgroundColor.blue,
+                        1,
+                      ),
+                    )
+                  : widget.item.menuImage,
+              duration: const Duration(milliseconds: 100),
+            ),
           ),
           SizedBox(
             height: 22.0,

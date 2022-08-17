@@ -15,33 +15,37 @@ Supported Platforms:
 
 ```dart
 ContextualMenu(
-    globalKey: GlobalKey(),
+    targetWidgetKey: key,
+    ctx: context,
+    backgroundColor: Colors.red,
+    highlightColor: Colors.white,
+    onDismiss: () {
+        setState(() {
+        _counter = _counter * 1.2;
+        });
+    },
     items: [
-    MenuItem(
+        MenuItem(
         press: _incrementCounter,
         title: 'increment',
         textAlign: TextAlign.justify,
         textStyle: const TextStyle(color: Colors.white),
         image: const Icon(Icons.add, color: Colors.white),
-    ),
-    MenuItem(
+        ),
+        MenuItem(
         press: _decrementCounter,
         title: 'decrement',
         textAlign: TextAlign.justify,
         textStyle: const TextStyle(color: Colors.white),
         image: const Icon(Icons.remove, color: Colors.white),
-    ),
+        ),
     ],
-    child: Container(
-    height: 60,
-    width: 60,
-    decoration: const BoxDecoration(
-        shape: BoxShape.circle,
-        color: Color(0xff648564),
+    child: Icon(
+        Icons.add,
+        key: key,
+        color: Colors.white,
     ),
-    child: const Icon(Icons.add, color: Colors.white),
-    ),
-),
+    )
 
 ```
 

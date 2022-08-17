@@ -1,9 +1,9 @@
 name: popup_menu_2
-description: a pupup menu, for porpose not break the user attention,.
+description: a pupup menu, contains clickable buttons each, and a global click function referring the item, this is for porpose not break the user attention,.
 repository: https://github.com/ymrabti/popup_menu_2.git
 # publish_to: https://pub.dev
 
-version: 0.0.4
+version: 0.0.6
 
 environment:
   sdk: ">=2.16.1 <3.0.0"

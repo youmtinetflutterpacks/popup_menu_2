@@ -52,24 +52,29 @@ class PopupMenu {
   bool _isShow = false;
   bool get isShow => _isShow;
 
+  /// chose if dissmiss if user click away
+  late bool dismissOnClickAway;
+
   PopupMenu({
     required BuildContext context,
     required List<MenuItemProvider> items,
     VoidCallback? onDismiss,
-    int maxColumn = 4,
+    int maxColumns = 4,
     Color? backgroundColor,
     Color? highlightColor,
     Color? lineColor,
     PopupMenuStateChanged? stateChanged,
+    bool? disClickAway,
   }) {
     dismissCallback = onDismiss;
     stateChangd = stateChanged;
     itms = items;
-    _maxColumn = maxColumn;
+    _maxColumn = maxColumns;
     _backgroundColor = backgroundColor ?? const Color(0xff232323);
     _lineColor = lineColor ?? const Color(0xFFF8F8F8);
     _highlightColor = highlightColor ?? const Color(0x55000000);
     buildContext = context;
+    dismissOnClickAway = disClickAway ?? true;
   }
 
   void show({Rect? rect, GlobalKey? widgetKey, List<MenuItemProvider>? items}) {
@@ -146,19 +151,19 @@ class PopupMenu {
       return GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: () {
-          dismiss();
+          if (dismissOnClickAway) {
+            dismiss();
+          }
         },
-//        onTapDown: (TapDownDetails details) {
-//          dismiss();
-//        },
-        // onPanStart: (DragStartDetails details) {
-        //   dismiss();
-        // },
         onVerticalDragStart: (DragStartDetails details) {
-          dismiss();
+          if (dismissOnClickAway) {
+            dismiss();
+          }
         },
         onHorizontalDragStart: (DragStartDetails details) {
-          dismiss();
+          if (dismissOnClickAway) {
+            dismiss();
+          }
         },
         child: Stack(
           children: <Widget>[
@@ -314,14 +319,15 @@ class PopupMenu {
     );
   }
 
-  void itemClicked(MenuItemProvider item) {
+  Future<void> itemClicked(MenuItemProvider item) async {
     item.clickAction();
+    await Future.delayed(const Duration(milliseconds: 500));
     dismiss();
   }
 
   void dismiss() {
     if (!_isShow) {
-      // Remove method should only be called once
+      /// Remove method should only be called once
       return;
     }
 

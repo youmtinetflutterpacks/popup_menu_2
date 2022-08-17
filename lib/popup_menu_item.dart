@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-enum MenuType { big, oneLine }
-
 abstract class MenuItemProvider {
   String get menuTitle;
   Widget? get menuImage;
@@ -40,5 +38,3 @@ class MenuItem extends MenuItemProvider {
   @override
   TextAlign get menuTextAlign => textAlign;
 }
-
-typedef MenuClickCallback = Function(MenuItemProvider item);
