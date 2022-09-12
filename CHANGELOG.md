@@ -11,3 +11,8 @@ fix error: two widgets using the same global key
 add dismiss on click away
 add waiting alternative when item clicked while waiting
 improving the code
+
+
+**v0.0.6**
+fix max columns property
+improving the code

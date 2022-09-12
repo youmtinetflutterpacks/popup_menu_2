@@ -8,14 +8,14 @@ abstract class MenuItemProvider {
   Function get clickAction;
 }
 
-class MenuItem extends MenuItemProvider {
+class CustomPopupMenuItem extends MenuItemProvider {
   Widget? image;
   String title;
   TextStyle textStyle;
   TextAlign textAlign;
   Function press;
 
-  MenuItem({
+  CustomPopupMenuItem({
     this.title = "",
     this.image,
     required this.textStyle,

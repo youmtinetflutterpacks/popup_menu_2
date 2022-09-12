@@ -91,6 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: ContextualMenu(
         targetWidgetKey: key,
         ctx: context,
+        maxColumns: 1,
         backgroundColor: Colors.red,
         highlightColor: Colors.white,
         onDismiss: () {
@@ -99,14 +100,14 @@ class _MyHomePageState extends State<MyHomePage> {
           });
         },
         items: [
-          MenuItem(
+          CustomPopupMenuItem(
             press: _incrementCounter,
             title: 'increment',
             textAlign: TextAlign.justify,
             textStyle: const TextStyle(color: Colors.white),
             image: const Icon(Icons.add, color: Colors.white),
           ),
-          MenuItem(
+          CustomPopupMenuItem(
             press: _decrementCounter,
             title: 'decrement',
             textAlign: TextAlign.justify,

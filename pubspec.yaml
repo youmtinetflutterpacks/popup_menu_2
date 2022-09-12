@@ -3,7 +3,7 @@ description: a pupup menu, contains clickable buttons each, and a global click f
 repository: https://github.com/ymrabti/popup_menu_2.git
 # publish_to: https://pub.dev
 
-version: 0.0.6
+version: 0.0.7
 
 environment:
   sdk: ">=2.16.1 <3.0.0"
