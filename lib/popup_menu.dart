@@ -1,7 +1,7 @@
 import 'dart:core';
 import 'dart:math';
-import 'dart:ui';
 
+import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:popup_menu_2/popup_menu_item.dart';
 import 'popup_menu_item_widget.dart';
@@ -85,7 +85,7 @@ class PopupMenu {
 
     itms = items ?? itms;
     _showRect = rect ?? PopupMenu.getWidgetGlobalRect(widgetKey!);
-    _screenSize = window.physicalSize / window.devicePixelRatio;
+    _screenSize = Size(Get.size.width, Get.size.height);
     dismissCallback = dismissCallback;
 
     _calculatePosition(PopupMenu.buildContext);
@@ -94,7 +94,7 @@ class PopupMenu {
       return buildPopupMenuLayout(_offset);
     });
 
-    Overlay.of(PopupMenu.buildContext)!.insert(_entry!);
+    Overlay.of(PopupMenu.buildContext).insert(_entry!);
     _isShow = true;
     if (stateChangd != null) {
       stateChangd!(true);
@@ -104,8 +104,7 @@ class PopupMenu {
   static Rect getWidgetGlobalRect(GlobalKey key) {
     RenderBox renderBox = key.currentContext!.findRenderObject() as RenderBox;
     var offset = renderBox.localToGlobal(Offset.zero);
-    return Rect.fromLTWH(
-        offset.dx, offset.dy, renderBox.size.width, renderBox.size.height);
+    return Rect.fromLTWH(offset.dx, offset.dy, renderBox.size.width, renderBox.size.height);
   }
 
   void _calculatePosition(BuildContext context) {
@@ -174,8 +173,7 @@ class PopupMenu {
               top: _isDown ? offset.dy + menuHeight() : offset.dy - arrowHeight,
               child: CustomPaint(
                 size: Size(15.0, arrowHeight),
-                painter:
-                    TrianglePainter(isDown: _isDown, color: _backgroundColor),
+                painter: TrianglePainter(isDown: _isDown, color: _backgroundColor),
               ),
             ),
             // menu content
@@ -214,8 +212,7 @@ class PopupMenu {
   List<Widget> _createRows() {
     List<Widget> rows = [];
     for (int i = 0; i < _row; i++) {
-      Color color =
-          (i < _row - 1 && _row != 1) ? _lineColor : Colors.transparent;
+      Color color = (i < _row - 1 && _row != 1) ? _lineColor : Colors.transparent;
       Widget rowWidget = Container(
         decoration: BoxDecoration(
           border: Border(
@@ -306,8 +303,8 @@ class PopupMenu {
   }
 
   double get screenWidth {
-    double width = window.physicalSize.width;
-    double ratio = window.devicePixelRatio;
+    double width = Get.size.width;
+    double ratio = Get.size.aspectRatio;
     return width / ratio;
   }
 
