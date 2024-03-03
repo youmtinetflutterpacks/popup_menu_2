@@ -76,13 +76,13 @@ packages:
     source: sdk
     version: "0.0.0"
   get:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: get
-      sha256: "2ba20a47c8f1f233bed775ba2dd0d3ac97b4cf32fc17731b3dfc672b06b0e92a"
+      sha256: e4e7335ede17452b391ed3b2ede016545706c01a02292a6c97619705e7d2a85e
       url: "https://pub.dev"
     source: hosted
-    version: "4.6.5"
+    version: "4.6.6"
   lints:
     dependency: transitive
     description:
@@ -201,3 +201,4 @@ packages:
     version: "0.1.4-beta"
 sdks:
   dart: ">=3.1.0 <4.0.0"
+  flutter: ">=3.13.0"

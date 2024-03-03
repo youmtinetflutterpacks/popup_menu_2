@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue, primaryColor: Colors.white),
+      theme: ThemeData(primarySwatch: Colors.brown, primaryColor: Colors.white),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -30,24 +30,26 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  double _counter = 0;
+  int _counter = 0;
   GlobalKey key = GlobalKey();
+  GlobalKey<ContextualMenuState> keyState = GlobalKey<ContextualMenuState>();
 
-  void _incrementCounter() async {
+  Future<void> _incrementCounter() async {
     await Future.delayed(const Duration(milliseconds: 500));
-    debugPrint('awaited successfully');
 
     setState(() {
       _counter++;
     });
+
+    keyState.currentState?.dismiss();
   }
 
-  void _decrementCounter() async {
+  Future<void> _decrementCounter() async {
     await Future.delayed(const Duration(milliseconds: 500));
-    debugPrint('awaited successfully');
     setState(() {
       _counter--;
     });
+    keyState.currentState?.dismiss();
   }
 
   @override
@@ -56,15 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
+          //   leading: _action(context),
           bottom: AppBar(
-            actions: [
-              PhysicalModel(
-                color: Colors.grey,
-                shape: BoxShape.circle,
-                elevation: 10,
-                child: add(context),
-              ),
-            ],
+            actions: [_action(context)],
           ),
         ),
         body: Center(
@@ -72,10 +68,10 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const Text(
-                'You have pushed the button this many times:',
+                'The Accountant result',
               ),
               Text(
-                _counter.toStringAsFixed(3),
+                '$_counter',
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ],
@@ -85,34 +81,36 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+  PhysicalModel _action(BuildContext context) {
+    return PhysicalModel(
+      color: Colors.grey,
+      shape: BoxShape.circle,
+      elevation: 10,
+      child: SizedBox(
+        height: AppBar().preferredSize.height,
+        width: AppBar().preferredSize.height,
+        child: add(context),
+      ),
+    );
+  }
+
   Widget add(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(12.0),
       child: ContextualMenu(
+        key: keyState,
         targetWidgetKey: key,
-        ctx: context,
-        maxColumns: 1,
+        maxColumns: 2,
         backgroundColor: Colors.red,
-        highlightColor: Colors.white,
-        onDismiss: () {
-          setState(() {
-            _counter = _counter * 1.2;
-          });
-        },
+        dismissOnClickAway: true,
         items: [
-          CustomPopupMenuItem(
-            press: _incrementCounter,
-            title: 'increment',
-            textAlign: TextAlign.justify,
-            textStyle: const TextStyle(color: Colors.white),
-            image: const Icon(Icons.add, color: Colors.white),
+          ContextPopupMenuItem(
+            onTap: _incrementCounter,
+            child: const Icon(Icons.add, color: Colors.white),
           ),
-          CustomPopupMenuItem(
-            press: _decrementCounter,
-            title: 'decrement',
-            textAlign: TextAlign.justify,
-            textStyle: const TextStyle(color: Colors.white),
-            image: const Icon(Icons.remove, color: Colors.white),
+          ContextPopupMenuItem(
+            onTap: _decrementCounter,
+            child: const Icon(Icons.remove, color: Colors.white),
           ),
         ],
         child: Icon(
