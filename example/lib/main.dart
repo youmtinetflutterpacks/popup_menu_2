@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:popup_menu_2/contextual_menu.dart';
-import 'package:popup_menu_2/popup_menu_item.dart';
+import 'package:popup_menu_2/popup_menu_2.dart';
 
 void main() {
   runApp(const MyApp());

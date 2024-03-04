@@ -2,7 +2,6 @@ import 'dart:developer';
 import 'dart:math' hide log;
 
 import 'package:flutter/material.dart';
-import 'package:popup_menu_2/popup_menu_item.dart';
 import 'package:popup_menu_2/popup_menu_item_widget.dart';
 import 'package:popup_menu_2/triangle_painter.dart';
 
@@ -106,7 +105,11 @@ class ContextualMenuState extends State<ContextualMenu> {
     var offset = renderBox.localToGlobal(Offset.zero);
 
     _showRect = Rect.fromLTWH(
-        offset.dx, offset.dy, renderBox.size.width, renderBox.size.height);
+      offset.dx,
+      offset.dy,
+      renderBox.size.width,
+      renderBox.size.height,
+    );
 
     _col = _calculateColCount();
     _row = _calculateRowCount();

@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:popup_menu_2/contextual_menu.dart';
-import 'popup_menu_item.dart';
+
+class ContextPopupMenuItem {
+  Widget? child;
+  Future<void> Function()? onTap;
+
+  ContextPopupMenuItem({
+    this.child,
+    this.onTap,
+  });
+}
 
 class MenuItemWidget extends StatefulWidget {
   final ContextPopupMenuItem item;
