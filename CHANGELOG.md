@@ -1,6 +1,6 @@
 # a pupup menu, for porpose not break the user attention
 
-**v0.1.2**
+**v0.1.2+1**
 
 - Upgrade flutter version
 - Add Wasm Support
