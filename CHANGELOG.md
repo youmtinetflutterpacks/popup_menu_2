@@ -1,5 +1,11 @@
 # a pupup menu, for porpose not break the user attention
 
+**v0.1.2**
+
+- Upgrade flutter version
+- Add Wasm Support
+  thanks to @MandaGate
+
 **v0.1.1**
 
 - Add CustomPopupMenu
