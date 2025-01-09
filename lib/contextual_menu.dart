@@ -100,7 +100,8 @@ class ContextualMenuState extends State<ContextualMenu> {
   }
 
   void show() {
-    RenderBox renderBox = widget.targetWidgetKey.currentContext!.findRenderObject() as RenderBox;
+    RenderBox renderBox =
+        widget.targetWidgetKey.currentContext!.findRenderObject() as RenderBox;
     var offset = renderBox.localToGlobal(Offset.zero);
 
     _showRect = Rect.fromLTWH(
@@ -138,7 +139,8 @@ class ContextualMenuState extends State<ContextualMenu> {
     }
 
     double dy = _showRect.top - menuHeight;
-    if (dy <= MediaQuery.of(context).padding.top + AppBar().preferredSize.height) {
+    if (dy <=
+        MediaQuery.of(context).padding.top + AppBar().preferredSize.height) {
       // The have not enough space above, show menu under the widget.
       dy = PopupMenuControl.arrowHeight + _showRect.height + _showRect.top;
       _isDown = false;
@@ -174,10 +176,15 @@ class ContextualMenuState extends State<ContextualMenu> {
             // triangle arrow
             Positioned(
               left: _showRect.left + _showRect.width / 2.0 - 7.5,
-              top: _isDown ? offset.dy + menuHeight : offset.dy - PopupMenuControl.arrowHeight,
+              top: _isDown
+                  ? offset.dy + menuHeight
+                  : offset.dy - PopupMenuControl.arrowHeight,
               child: CustomPaint(
                 size: Size(15.0, PopupMenuControl.arrowHeight),
-                painter: TrianglePainter(isDown: _isDown, color: widget.backgroundColor ?? Theme.of(context).colorScheme.surface),
+                painter: TrianglePainter(
+                    isDown: _isDown,
+                    color: widget.backgroundColor ??
+                        Theme.of(context).colorScheme.surface),
               ),
             ),
             // menu content
@@ -195,7 +202,8 @@ class ContextualMenuState extends State<ContextualMenu> {
                         width: menuWidth,
                         height: menuHeight,
                         decoration: BoxDecoration(
-                          color: widget.backgroundColor ?? Theme.of(context).colorScheme.surface,
+                          color: widget.backgroundColor ??
+                              Theme.of(context).colorScheme.surface,
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Column(
@@ -216,7 +224,9 @@ class ContextualMenuState extends State<ContextualMenu> {
   List<Widget> _createRows() {
     List<Widget> rows = [];
     for (int i = 0; i < _row; i++) {
-      Color color = (i < _row - 1 && _row != 1) ? widget.lineColor ?? Colors.grey : Colors.transparent;
+      Color color = (i < _row - 1 && _row != 1)
+          ? widget.lineColor ?? Colors.grey
+          : Colors.transparent;
       Widget rowWidget = Container(
         decoration: BoxDecoration(
           border: Border(
@@ -311,8 +321,10 @@ class ContextualMenuState extends State<ContextualMenu> {
       showLine: showLine,
       clickCallback: itemClicked,
       lineColor: widget.lineColor ?? Colors.grey,
-      backgroundColor: widget.backgroundColor ?? Theme.of(context).colorScheme.surface,
-      highlightColor: widget.highlightColor ?? Theme.of(context).colorScheme.error,
+      backgroundColor:
+          widget.backgroundColor ?? Theme.of(context).colorScheme.surface,
+      highlightColor:
+          widget.highlightColor ?? Theme.of(context).colorScheme.error,
     );
   }
 
