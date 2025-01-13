@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:popup_menu_2/popup_menu_item_widget.dart';
 import 'package:popup_menu_2/triangle_painter.dart';
 
+import 'popup_menu.dart';
+
 typedef PopupMenuStateChanged = void Function(bool isShow);
 
 class PopupMenuControl {
@@ -41,6 +43,8 @@ class ContextualMenu extends StatefulWidget {
   /// chose if dissmiss if user click away
   final bool dismissOnClickAway;
 
+  final PreferredPosition? position;
+
   /// max columns
   final int maxColumns;
   const ContextualMenu({
@@ -55,6 +59,7 @@ class ContextualMenu extends StatefulWidget {
     this.dismissOnClickAway = true,
     this.stateChanged,
     this.maxColumns = 3,
+    this.position,
   }) : super(key: key);
 
   @override
@@ -139,14 +144,26 @@ class ContextualMenuState extends State<ContextualMenu> {
     }
 
     double dy = _showRect.top - menuHeight;
-    if (dy <=
-        MediaQuery.of(context).padding.top + AppBar().preferredSize.height) {
-      // The have not enough space above, show menu under the widget.
-      dy = PopupMenuControl.arrowHeight + _showRect.height + _showRect.top;
-      _isDown = false;
+    if (widget.position != null) {
+      if (widget.position == PreferredPosition.top) {
+        // The have not enough space above, show menu under the widget.
+        dy = PopupMenuControl.arrowHeight + _showRect.height + _showRect.top;
+        _isDown = false;
+      } else {
+        dy -= PopupMenuControl.arrowHeight;
+        _isDown = true;
+      }
     } else {
-      dy -= PopupMenuControl.arrowHeight;
-      _isDown = true;
+      var top2 = MediaQuery.of(context).padding.top;
+      var height2 = AppBar().preferredSize.height;
+      if (dy <= top2 + height2) {
+        // The have not enough space above, show menu under the widget.
+        dy = PopupMenuControl.arrowHeight + _showRect.height + _showRect.top;
+        _isDown = false;
+      } else {
+        dy -= PopupMenuControl.arrowHeight;
+        _isDown = true;
+      }
     }
 
     return Offset(dx, dy);

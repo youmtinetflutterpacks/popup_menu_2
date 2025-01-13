@@ -4,41 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:popup_menu_2/popup_menu.dart';
 
 void main() {
-  runApp(const MyApp());
-}
-
-class ChatModel {
-  String content;
-  bool isMe;
-
-  ChatModel(
-    this.content, {
-    this.isMe = false,
-  });
-}
-
-class ItemModel {
-  String title;
-  IconData icon;
-
-  ItemModel(this.title, this.icon);
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'CustomPopupMenu',
+  runApp(
+    MaterialApp(
+      title: 'Custom Popup Menu',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: const MyHomePage(),
-    );
-  }
+    ),
+  );
 }
 
 class MyHomePage extends StatefulWidget {
@@ -89,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('CustomPopupMenu'),
+        title: const Text('Custom Popup Menu'),
         actions: <Widget>[
           CustomPopupMenu(
             enablePassEvent: true,
@@ -198,7 +173,7 @@ class MessageContent extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(5),
       child: Container(
-        width: 220,
+        width: 250,
         color: const Color(0xFF4C4C4C),
         child: GridView.count(
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
@@ -297,4 +272,21 @@ class MessageContent extends StatelessWidget {
       ),
     );
   }
+}
+
+class ChatModel {
+  String content;
+  bool isMe;
+
+  ChatModel(
+    this.content, {
+    this.isMe = false,
+  });
+}
+
+class ItemModel {
+  String title;
+  IconData icon;
+
+  ItemModel(this.title, this.icon);
 }

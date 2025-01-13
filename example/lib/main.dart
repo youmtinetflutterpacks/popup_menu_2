@@ -30,24 +30,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-  GlobalKey key = GlobalKey();
+  GlobalKey mkey = GlobalKey();
   GlobalKey<ContextualMenuState> keyState = GlobalKey<ContextualMenuState>();
 
   Future<void> _incrementCounter() async {
-    await Future.delayed(const Duration(milliseconds: 500));
+    // await Future.delayed(const Duration(milliseconds: 500));
 
-    setState(() {
-      _counter++;
-    });
+    _counter++;
+    setState(() {});
 
     keyState.currentState?.dismiss();
   }
 
   Future<void> _decrementCounter() async {
-    await Future.delayed(const Duration(milliseconds: 500));
-    setState(() {
-      _counter--;
-    });
+    // await Future.delayed(const Duration(milliseconds: 500));
+    _counter--;
+    setState(() {});
     keyState.currentState?.dismiss();
   }
 
@@ -57,9 +55,9 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         appBar: AppBar(
           title: Text(widget.title),
-          //   leading: _action(context),
+          //   leading: _action(),
           bottom: AppBar(
-            actions: [_action(context)],
+            actions: [_action()],
           ),
         ),
         body: Center(
@@ -80,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  PhysicalModel _action(BuildContext context) {
+  Widget _action() {
     return PhysicalModel(
       color: Colors.grey,
       shape: BoxShape.circle,
@@ -88,36 +86,38 @@ class _MyHomePageState extends State<MyHomePage> {
       child: SizedBox(
         height: AppBar().preferredSize.height,
         width: AppBar().preferredSize.height,
-        child: add(context),
+        child: add(),
       ),
     );
   }
 
-  Widget add(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(12.0),
-      child: ContextualMenu(
-        key: keyState,
-        targetWidgetKey: key,
-        maxColumns: 2,
-        backgroundColor: Colors.red,
-        dismissOnClickAway: true,
-        items: [
-          ContextPopupMenuItem(
-            onTap: _incrementCounter,
-            child: const Icon(Icons.add, color: Colors.white),
+  Widget add() {
+    return Builder(builder: (context) {
+      return Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: ContextualMenu(
+          key: keyState,
+          targetWidgetKey: mkey,
+          maxColumns: 2,
+          backgroundColor: Colors.red,
+          dismissOnClickAway: true,
+          items: [
+            ContextPopupMenuItem(
+              onTap: _incrementCounter,
+              child: const Icon(Icons.add, color: Colors.white),
+            ),
+            ContextPopupMenuItem(
+              onTap: _decrementCounter,
+              child: const Icon(Icons.remove, color: Colors.white),
+            ),
+          ],
+          child: Icon(
+            Icons.add,
+            key: mkey,
+            color: Colors.white,
           ),
-          ContextPopupMenuItem(
-            onTap: _decrementCounter,
-            child: const Icon(Icons.remove, color: Colors.white),
-          ),
-        ],
-        child: Icon(
-          Icons.add,
-          key: key,
-          color: Colors.white,
         ),
-      ),
-    );
+      );
+    });
   }
 }

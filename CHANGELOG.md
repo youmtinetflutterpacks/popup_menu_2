@@ -1,5 +1,10 @@
 # a pupup menu, for porpose not break the user attention
 
+**0.1.4-beta.1**
+
+- Pre-release
+- Bug fix
+
 **v0.1.3**
 
 - bonus
