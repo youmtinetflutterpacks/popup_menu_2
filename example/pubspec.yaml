@@ -6,17 +6,17 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-    sdk: ^3.5.4
+    sdk: ^3.11.0
     flutter: ^3.27.1
 
 dependencies:
     flutter:
         sdk: flutter
 
-    cupertino_icons: ^1.0.2
+    cupertino_icons: ^1.0.8
     popup_menu_2:
         path: ../
-    get: ^4.6.6
+    get: ^4.7.3
 
 dev_dependencies:
     flutter_test:

@@ -1,18 +1,18 @@
 name: popup_menu_2
-description: a pupup menu, contains clickable buttons each, and a global click function referring the item, this is for porpose not break the user attention,.
+description: A popup menu containing clickable buttons, each with a global click function referring to the item. This is designed to avoid breaking the user's attention.
 repository: https://github.com/ymrabti/popup_menu_2.git
 # publish_to: https://pub.dev
 
-version: 0.1.4-beta.2
+version: 0.1.5
 
 environment:
-    sdk: ^3.5.4
+    sdk: ^3.11.0
 
 dependencies:
     flutter:
         sdk: flutter
 
-    cupertino_icons: ^1.0.2
+    cupertino_icons: ^1.0.8
 
 dev_dependencies:
     flutter_test:

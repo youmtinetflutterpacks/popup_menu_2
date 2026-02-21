@@ -1,48 +1,99 @@
-# a pupup menu, for porpose not break the user attention
+# Changelog
 
-**0.1.4-beta.2**
+All notable changes to this package are documented in this file.
 
-- Pre-release
-- Bug fix
+## 0.1.5
 
-**v0.1.3**
+### Direction
+- Promote the beta line to a stable release and improve production readiness.
 
-- bonus
+### Changes
+- Stable release following the `0.1.4` validation cycle.
+- General reliability and release-readiness improvements.
 
-**v0.1.2+1**
+## 0.1.4
 
-- Upgrade flutter version
-- Add Wasm Support
-  thanks to @MandaGate
+### Direction
+- Stabilize the beta before the next non-beta release.
 
-**v0.1.1**
+### Changes
+- Pre-release quality pass.
+- Fixed issues found during beta usage.
 
-- Add CustomPopupMenu
-- Add CustomPopupMenuController
+## 0.1.3
 
-**v0.1.0**
+### Direction
+- Add small quality improvements to the package behavior and developer experience.
 
-- Huge modifications
+### Changes
+- Minor improvements and polish updates.
 
-**v0.0.8**
+## 0.1.2+1
 
-- Bug Fix
+### Direction
+- Improve compatibility with modern Flutter targets.
 
-**v0.0.7**
+### Changes
+- Upgraded Flutter compatibility.
+- Added WebAssembly (Wasm) support.
+- Contribution credit: thanks to @MandaGate.
 
-- add dismiss on click away
-- add waiting alternative when item clicked while waiting
-- improving the code
+## 0.1.1
 
-**v0.0.6**
+### Direction
+- Expand customization and controller APIs.
 
-- fix max columns property
-- improving the code
+### Changes
+- Added `CustomPopupMenu`.
+- Added `CustomPopupMenuController`.
 
-**v0.0.5**
+## 0.1.0
 
-- fix error: two widgets using the same global key
+### Direction
+- Deliver a major internal evolution toward a more robust base.
 
-**v0.0.4**
+### Changes
+- Large architectural and behavioral updates.
 
-- Initial release
+## 0.0.8
+
+### Direction
+- Increase stability.
+
+### Changes
+- Bug fixes.
+
+## 0.0.7
+
+### Direction
+- Improve interaction handling and user feedback.
+
+### Changes
+- Added dismiss-on-click-away behavior.
+- Added waiting-state alternative when an item is clicked during processing.
+- Internal code quality improvements.
+
+## 0.0.6
+
+### Direction
+- Refine layout behavior and internal quality.
+
+### Changes
+- Fixed `maxColumns` behavior.
+- Internal code quality improvements.
+
+## 0.0.5
+
+### Direction
+- Address critical runtime stability issue.
+
+### Changes
+- Fixed issue where two widgets could use the same global key.
+
+## 0.0.4
+
+### Direction
+- First public package release.
+
+### Changes
+- Initial release.
