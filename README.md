@@ -5,9 +5,18 @@
 Lightweight and customizable Flutter popup menus designed to keep user attention on the current context.
 
 [![pub package](https://img.shields.io/pub/v/popup_menu_2.svg)](https://pub.dev/packages/popup_menu_2)
-[![likes](https://img.shields.io/pub/likes/popup_menu_2)](https://pub.dev/packages/popup_menu_2)
+[![pub likes](https://img.shields.io/pub/likes/popup_menu_2.svg)](https://pub.dev/packages/popup_menu_2/score)
+[![pub points](https://img.shields.io/pub/points/popup_menu_2.svg?color=blue)](https://pub.dev/packages/popup_menu_2/score)
 [![platform](https://img.shields.io/badge/platform-flutter-blue)](https://flutter.dev)
-[![license](https://img.shields.io/badge/license-BSD--3--Clause-green)](LICENSE)
+
+[![GitHub stars](https://img.shields.io/github/stars/ymrabti/popup_menu_2.svg?style=flat&logo=github&colorB=&label=Stars)](https://github.com/ymrabti/popup_menu_2/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/ymrabti/popup_menu_2.svg?style=flat&logo=github&colorB=&label=Issues)](https://github.com/ymrabti/popup_menu_2/issues)
+[![GitHub license](https://img.shields.io/github/license/ymrabti/popup_menu_2.svg?style=flat&logo=github&colorB=&label=License)](https://github.com/ymrabti/popup_menu_2/blob/main/LICENSE)
+[![GitHub last commit](https://img.shields.io/github/last-commit/ymrabti/popup_menu_2.svg?style=flat&logo=github&colorB=&label=Last%20Commit)](https://github.com/ymrabti/popup_menu_2/commits/main)
+
+
+[![Build status](https://github.com/ymrabti/popup_menu_2/workflows/Publish%20to%20pub.dev/badge.svg?style=flat&logo=github&colorB=&label=Build)](https://github.com/youmtinetflutterpacks/popup_menu_2)
+
 
 </div>
 

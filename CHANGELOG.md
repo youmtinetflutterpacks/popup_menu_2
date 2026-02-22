@@ -2,6 +2,12 @@
 
 All notable changes to this package are documented in this file.
 
+## [0.1.6]
+- Updated version number to `0.1.6` for the next release cycle.
+- Update README.
+
+`2026-02-22`
+
 ## 0.1.5
 
 ### Direction

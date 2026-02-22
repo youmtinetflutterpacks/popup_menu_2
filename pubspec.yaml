@@ -3,7 +3,7 @@ description: A popup menu containing clickable buttons, each with a global click
 repository: https://github.com/ymrabti/popup_menu_2.git
 # publish_to: https://pub.dev
 
-version: 0.1.5
+version: 0.1.6
 
 environment:
     sdk: ^3.11.0
