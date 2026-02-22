@@ -41,7 +41,7 @@ Add dependency to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-    popup_menu_2: ^0.1.5
+    popup_menu_2: ^0.1.6
 ```
 
 Then run:
