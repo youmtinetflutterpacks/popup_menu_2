@@ -82,7 +82,7 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
   CustomPopupMenuController? _controller;
   bool _canResponse = true;
 
-  _showMenu() {
+  void _showMenu() {
     Widget arrow = ClipPath(
       clipper: _ArrowClipper(),
       child: Container(
@@ -93,7 +93,7 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
     );
 
     _overlayEntry = OverlayEntry(
-      builder: (context) {
+      builder: (BuildContext context) {
         Widget menu = Center(
           child: Container(
             constraints: BoxConstraints(
@@ -155,7 +155,7 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
             // but the passed event would trigger [showMenu] again.
             // So, we use time threshold to solve this bug.
             _canResponse = false;
-            Future.delayed(const Duration(milliseconds: 300))
+            Future<void>.delayed(const Duration(milliseconds: 300))
                 .then((_) => _canResponse = true);
           },
           child: widget.barrierColor == Colors.transparent
@@ -172,14 +172,14 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
     }
   }
 
-  _hideMenu() {
+  void _hideMenu() {
     if (_overlayEntry != null) {
       _overlayEntry?.remove();
       _overlayEntry = null;
     }
   }
 
-  _updateView() {
+  void _updateView() {
     bool menuIsShowing = _controller?.menuIsShowing ?? false;
     widget.menuOnChange?.call(menuIsShowing);
     if (menuIsShowing) {
@@ -195,7 +195,7 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
     _controller = widget.controller;
     _controller ??= CustomPopupMenuController();
     _controller?.addListener(_updateView);
-    WidgetsBinding.instance.addPostFrameCallback((call) {
+    WidgetsBinding.instance.addPostFrameCallback((Duration call) {
       if (mounted) {
         _childBox = context.findRenderObject() as RenderBox?;
         _parentBox =
@@ -213,7 +213,7 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
 
   @override
   Widget build(BuildContext context) {
-    var child = Material(
+    Material child = Material(
       color: Colors.transparent,
       child: InkWell(
         hoverColor: Colors.transparent,
@@ -238,7 +238,7 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
     } else {
       return PopScope(
         canPop: true,
-        onPopInvokedWithResult: (result, data) {
+        onPopInvokedWithResult: (bool result, Object? data) {
           _hideMenu();
         },
         child: child,

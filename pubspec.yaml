@@ -1,12 +1,19 @@
 name: popup_menu_2
 description: A popup menu containing clickable buttons, each with a global click function referring to the item. This is designed to avoid breaking the user's attention.
 repository: https://github.com/ymrabti/popup_menu_2.git
-# publish_to: https://pub.dev
+homepage: https://popup-menu-2-demo.youmti.net/
+documentation: https://popup-menu-2-docs.youmti.net/
+topics:
+    - flutter
+    - popup-menu
+    - context-menu
+    - bubble-menu
+    - no-attention-break
 
 version: 0.1.6
 
 environment:
-    sdk: ^3.11.0
+    sdk: '>=2.18.0 <4.0.0'
 
 dependencies:
     flutter:

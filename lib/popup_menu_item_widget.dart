@@ -37,8 +37,8 @@ class MenuItemWidget extends StatefulWidget {
 }
 
 class _MenuItemWidgetState extends State<MenuItemWidget> {
-  var highlightColor = const Color(0x55000000);
-  var color = const Color(0xff232323);
+  Color highlightColor = const Color(0x55000000);
+  Color color = const Color(0xff232323);
   @override
   void initState() {
     color = widget.backgroundColor;
@@ -49,17 +49,17 @@ class _MenuItemWidgetState extends State<MenuItemWidget> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTapDown: (details) {
+      onTapDown: (TapDownDetails details) {
         setState(() {
           color = highlightColor;
         });
       },
-      onTapUp: (details) {
+      onTapUp: (TapUpDetails details) {
         setState(() {
           color = widget.backgroundColor;
         });
       },
-      onLongPressEnd: (details) {
+      onLongPressEnd: (LongPressEndDetails details) {
         setState(() {
           color = widget.backgroundColor;
         });

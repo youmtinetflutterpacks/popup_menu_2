@@ -34,22 +34,28 @@ class _MyHomePageState extends State<MyHomePage> {
       ChatModel('Are you there?'),
       ChatModel('What\'s wrong? Can I help you?', isMe: true),
       ChatModel('Nothing, just checking to see if you are here'),
-      ChatModel('What on earth are you talking about? I\'m still working.',
-          isMe: true),
+      ChatModel(
+        'What on earth are you talking about? I\'m still working.',
+        isMe: true,
+      ),
       ChatModel('？', isMe: true),
       ChatModel('Let’s start introducing Flutter'),
       ChatModel(
-          'Flutter is Google\'s mobile UI framework that can quickly build high-quality native user interfaces on iOS and Android. Flutter can work with existing code. Flutter is being used by more and more developers and organizations around the world, and Flutter is completely free and open source.'),
+        'Flutter is Google\'s mobile UI framework that can quickly build high-quality native user interfaces on iOS and Android. Flutter can work with existing code. Flutter is being used by more and more developers and organizations around the world, and Flutter is completely free and open source.',
+      ),
       ChatModel('That\'s it？？？', isMe: true),
       ChatModel('Are you there?'),
       ChatModel('What\'s wrong? Can I help you?', isMe: true),
       ChatModel('Nothing, just checking to see if you are here'),
-      ChatModel('What on earth are you talking about? I\'m still working.',
-          isMe: true),
+      ChatModel(
+        'What on earth are you talking about? I\'m still working.',
+        isMe: true,
+      ),
       ChatModel('？', isMe: true),
       ChatModel('Let’s start introducing Flutter'),
       ChatModel(
-          'Flutter is Google\'s mobile UI framework that can quickly build high-quality native user interfaces on iOS and Android. Flutter can work with existing code. Flutter is being used by more and more developers and organizations around the world, and Flutter is completely free and open source.'),
+        'Flutter is Google\'s mobile UI framework that can quickly build high-quality native user interfaces on iOS and Android. Flutter can work with existing code. Flutter is being used by more and more developers and organizations around the world, and Flutter is completely free and open source.',
+      ),
       ChatModel('That\'s it？？？', isMe: true),
     ];
     menuItems = [
@@ -97,13 +103,8 @@ class _MyHomePageState extends State<MyHomePage> {
             child: ConstrainedBox(
               constraints: BoxConstraints(minHeight: constraint.maxHeight),
               child: Column(
-                children: messages
-                    .map(
-                      (message) => MessageContent(
-                        message,
-                      ),
-                    )
-                    .toList(),
+                children:
+                    messages.map((message) => MessageContent(message)).toList(),
               ),
             ),
           );
@@ -126,11 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: <Widget>[
-                  Icon(
-                    item.icon,
-                    size: 15,
-                    color: Colors.white,
-                  ),
+                  Icon(item.icon, size: 15, color: Colors.white),
                   Expanded(
                     child: Container(
                       margin: const EdgeInsets.only(left: 10),
@@ -187,17 +184,15 @@ class MessageContent extends StatelessWidget {
                 (item) => Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Icon(
-                      item.icon,
-                      size: 20,
-                      color: Colors.white,
-                    ),
+                    Icon(item.icon, size: 20, color: Colors.white),
                     Container(
                       margin: const EdgeInsets.only(top: 2),
                       child: Text(
                         item.title,
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 12),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
                       ),
                     ),
                   ],
@@ -216,10 +211,7 @@ class MessageContent extends StatelessWidget {
         color: isMe ? Colors.blueAccent : Colors.pinkAccent,
         width: size,
         height: size,
-        child: Icon(
-          isMe ? Icons.face : Icons.tag_faces,
-          color: Colors.white,
-        ),
+        child: Icon(isMe ? Icons.face : Icons.tag_faces, color: Colors.white),
       ),
     );
   }
@@ -267,7 +259,7 @@ class MessageContent extends StatelessWidget {
               ),
               child: Text(message.content),
             ),
-          )
+          ),
         ],
       ),
     );
@@ -278,10 +270,7 @@ class ChatModel {
   String content;
   bool isMe;
 
-  ChatModel(
-    this.content, {
-    this.isMe = false,
-  });
+  ChatModel(this.content, {this.isMe = false});
 }
 
 class ItemModel {

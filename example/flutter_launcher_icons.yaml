@@ -1,0 +1,14 @@
+# fvm dart run flutter_launcher_icons -f flutter_launcher_icons.yaml
+flutter_launcher_icons:
+    android: ic_launcher
+    ios: true
+    image_path: assets/logo-color.png
+    remove_alpha_ios: true
+    adaptive_icon_background: "#020623"
+    adaptive_icon_foreground: assets/logo-color.png
+    web:
+        generate: true
+        image_path: assets/logo-color.png
+    windows:
+        generate: true
+        image_path: assets/logo-color.png

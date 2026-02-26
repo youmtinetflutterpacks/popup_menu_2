@@ -107,7 +107,7 @@ class ContextualMenuState extends State<ContextualMenu> {
   void show() {
     RenderBox renderBox =
         widget.targetWidgetKey.currentContext!.findRenderObject() as RenderBox;
-    var offset = renderBox.localToGlobal(Offset.zero);
+    Offset offset = renderBox.localToGlobal(Offset.zero);
 
     _showRect = Rect.fromLTWH(
       offset.dx,
@@ -121,7 +121,7 @@ class ContextualMenuState extends State<ContextualMenu> {
     _offset = _calculateOffset(context);
 
     _entry = OverlayEntry(
-      builder: (context) {
+      builder: (BuildContext context) {
         return buildPopupMenuLayout(_offset);
       },
     );
@@ -154,8 +154,8 @@ class ContextualMenuState extends State<ContextualMenu> {
         _isDown = true;
       }
     } else {
-      var top2 = MediaQuery.of(context).padding.top;
-      var height2 = AppBar().preferredSize.height;
+      double top2 = MediaQuery.of(context).padding.top;
+      double height2 = AppBar().preferredSize.height;
       if (dy <= top2 + height2) {
         // The have not enough space above, show menu under the widget.
         dy = PopupMenuControl.arrowHeight + _showRect.height + _showRect.top;
@@ -170,7 +170,8 @@ class ContextualMenuState extends State<ContextualMenu> {
   }
 
   LayoutBuilder buildPopupMenuLayout(Offset offset) {
-    return LayoutBuilder(builder: (context, constraints) {
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
       return GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: () {
@@ -239,7 +240,7 @@ class ContextualMenuState extends State<ContextualMenu> {
   }
 
   List<Widget> _createRows() {
-    List<Widget> rows = [];
+    List<Widget> rows = <Widget>[];
     for (int i = 0; i < _row; i++) {
       Color color = (i < _row - 1 && _row != 1)
           ? widget.lineColor ?? Colors.grey
@@ -268,9 +269,9 @@ class ContextualMenuState extends State<ContextualMenu> {
       row * _col,
       min(row * _col + _col, widget.items.length),
     );
-    List<Widget> itemWidgets = [];
+    List<Widget> itemWidgets = <Widget>[];
     int i = 0;
-    for (var item in subItems) {
+    for (ContextPopupMenuItem item in subItems) {
       itemWidgets.add(
         _createMenuItem(
           item,
