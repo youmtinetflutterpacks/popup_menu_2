@@ -7,46 +7,59 @@ import 'package:popup_menu_2/triangle_painter.dart';
 
 import 'popup_menu.dart';
 
+/// Callback triggered when the popup menu's visibility state changes.
 typedef PopupMenuStateChanged = void Function(bool isShow);
 
+/// Global configuration for the dimensions of the popup menu items and arrow.
 class PopupMenuControl {
+  /// The default width of a single menu item.
   static double itemWidth = 72.0;
+
+  /// The default height of a single menu item.
   static double itemHeight = 65.0;
+
+  /// The default height of the arrow pointing to the target widget.
   static double arrowHeight = 10.0;
 }
 
+/// A widget that displays a contextual popup menu when tapped.
+///
+/// The menu is positioned relative to a target widget specified by [targetWidgetKey].
 class ContextualMenu extends StatefulWidget {
-  /// the child is a [Widget]
+  /// The child widget that triggers the contextual menu when tapped.
   final Widget child;
 
-  /// list of items
+  /// The list of items to display in the popup menu.
   final List<ContextPopupMenuItem> items;
 
-  /// background of the pop up
+  /// The background color of the popup menu.
   final Color? backgroundColor;
 
-  /// highlight  of the pop up selected item
+  /// The highlight color of a selected popup menu item.
   final Color? highlightColor;
 
-  /// color  of line separator
+  /// The color of the line separator between menu items.
   final Color? lineColor;
 
-  /// the key of the targetting pop up
+  /// The global key of the target widget to which the popup menu is anchored.
   final GlobalKey targetWidgetKey;
 
-  /// called after dismissing the popup
+  /// Callback triggered after the popup menu is dismissed.
   final void Function()? onDismiss;
 
-  /// called after an item clicked
+  /// Callback triggered when the menu's visibility state changes.
   final void Function(bool change)? stateChanged;
 
-  /// chose if dissmiss if user click away
+  /// Whether the menu should dismiss when the user clicks outside of it.
   final bool dismissOnClickAway;
 
+  /// The preferred position of the menu relative to the target widget.
   final PreferredPosition? position;
 
-  /// max columns
+  /// The maximum number of columns to display in the popup menu grid.
   final int maxColumns;
+
+  /// Creates a [ContextualMenu].
   const ContextualMenu({
     Key? key,
     required this.targetWidgetKey,
@@ -69,29 +82,32 @@ class ContextualMenu extends StatefulWidget {
 class ContextualMenuState extends State<ContextualMenu> {
   OverlayEntry? _entry;
 
-  /// row count
+  /// The number of rows in the popup menu grid.
   int _row = 1;
 
-  /// col count
+  /// The number of columns in the popup menu grid.
   int _col = 1;
 
-  /// The left top point of this menu.
+  /// The top-left offset of the popup menu.
   late Offset _offset;
 
-  /// Menu will show at above or under this rect
+  /// The bounding box of the target widget.
   late Rect _showRect;
 
-  /// if false menu is show above of the widget, otherwise menu is show under the widget
+  /// Whether the menu is shown below the target widget.
+  /// If false, the menu is shown above the widget.
   bool _isDown = true;
 
-  /// It's showing or not.
+  /// Whether the popup menu is currently visible.
   bool _isShow = false;
+
+  /// Returns true if the popup menu is currently visible.
   bool get isShow => _isShow;
 
-  /// chose if dissmiss if user click away
+  /// The total width of the popup menu.
   double get menuWidth => PopupMenuControl.itemWidth * _col;
 
-  /// This height exclude the arrow
+  /// The total height of the popup menu, excluding the arrow.
   double get menuHeight => PopupMenuControl.itemHeight * _row;
 
   @override
@@ -104,9 +120,9 @@ class ContextualMenuState extends State<ContextualMenu> {
     );
   }
 
+  /// Displays the contextual popup menu.
   void show() {
-    RenderBox renderBox =
-        widget.targetWidgetKey.currentContext!.findRenderObject() as RenderBox;
+    RenderBox renderBox = widget.targetWidgetKey.currentContext!.findRenderObject() as RenderBox;
     Offset offset = renderBox.localToGlobal(Offset.zero);
 
     _showRect = Rect.fromLTWH(
@@ -170,8 +186,7 @@ class ContextualMenuState extends State<ContextualMenu> {
   }
 
   LayoutBuilder buildPopupMenuLayout(Offset offset) {
-    return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints constraints) {
+    return LayoutBuilder(builder: (BuildContext context, BoxConstraints constraints) {
       return GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: () {
@@ -194,15 +209,10 @@ class ContextualMenuState extends State<ContextualMenu> {
             // triangle arrow
             Positioned(
               left: _showRect.left + _showRect.width / 2.0 - 7.5,
-              top: _isDown
-                  ? offset.dy + menuHeight
-                  : offset.dy - PopupMenuControl.arrowHeight,
+              top: _isDown ? offset.dy + menuHeight : offset.dy - PopupMenuControl.arrowHeight,
               child: CustomPaint(
                 size: Size(15.0, PopupMenuControl.arrowHeight),
-                painter: TrianglePainter(
-                    isDown: _isDown,
-                    color: widget.backgroundColor ??
-                        Theme.of(context).colorScheme.surface),
+                painter: TrianglePainter(isDown: _isDown, color: widget.backgroundColor ?? Theme.of(context).colorScheme.surface),
               ),
             ),
             // menu content
@@ -220,8 +230,7 @@ class ContextualMenuState extends State<ContextualMenu> {
                         width: menuWidth,
                         height: menuHeight,
                         decoration: BoxDecoration(
-                          color: widget.backgroundColor ??
-                              Theme.of(context).colorScheme.surface,
+                          color: widget.backgroundColor ?? Theme.of(context).colorScheme.surface,
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Column(
@@ -242,9 +251,7 @@ class ContextualMenuState extends State<ContextualMenu> {
   List<Widget> _createRows() {
     List<Widget> rows = <Widget>[];
     for (int i = 0; i < _row; i++) {
-      Color color = (i < _row - 1 && _row != 1)
-          ? widget.lineColor ?? Colors.grey
-          : Colors.transparent;
+      Color color = (i < _row - 1 && _row != 1) ? widget.lineColor ?? Colors.grey : Colors.transparent;
       Widget rowWidget = Container(
         decoration: BoxDecoration(
           border: Border(
@@ -339,18 +346,18 @@ class ContextualMenuState extends State<ContextualMenu> {
       showLine: showLine,
       clickCallback: itemClicked,
       lineColor: widget.lineColor ?? Colors.grey,
-      backgroundColor:
-          widget.backgroundColor ?? Theme.of(context).colorScheme.surface,
-      highlightColor:
-          widget.highlightColor ?? Theme.of(context).colorScheme.error,
+      backgroundColor: widget.backgroundColor ?? Theme.of(context).colorScheme.surface,
+      highlightColor: widget.highlightColor ?? Theme.of(context).colorScheme.error,
     );
   }
 
+  /// Handles the click event on a menu item.
   Future<void> itemClicked(ContextPopupMenuItem item) async {
     await item.onTap?.call();
     dismiss();
   }
 
+  /// Dismisses the contextual popup menu.
   void dismiss() {
     if (!_isShow) {
       return;
