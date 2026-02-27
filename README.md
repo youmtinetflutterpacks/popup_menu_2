@@ -19,7 +19,7 @@ Lightweight and customizable Flutter popup menus designed to keep user attention
 
 [![Build status](https://github.com/ymrabti/popup_menu_2/workflows/Publish%20to%20pub.dev/badge.svg?style=flat&logo=github&colorB=&label=Build)](https://github.com/youmtinetflutterpacks/popup_menu_2)
 
-
+🌐 [Watch the demo web release](https://popup-menu-2-demo.youmti.net/) &nbsp;|&nbsp; 📦 [Download the latest APK](https://github.com/youmtinetflutterpacks/popup_menu_2/releases/latest/download/popup_menu_2_demo-release-universal.apk)
 </div>
 
 # This is a fork of [popup_menu](https://pub.dev/packages/popup_menu) by [@chinabrant](https://github.com/chinabrant)
@@ -35,8 +35,9 @@ Lightweight and customizable Flutter popup menus designed to keep user attention
 ## 📸 Preview
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/ymrabti/popup_menu_2/main/screen-1.jpg" width="220" alt="popup preview 1" />
-    <img src="https://raw.githubusercontent.com/ymrabti/popup_menu_2/main/screen-2.jpg" width="220" alt="popup preview 2" />
+    <img src="https://raw.githubusercontent.com/ymrabti/popup_menu_2/main/screen_0_1.jpg" width="220" alt="popup preview 1" />
+    <img src="https://raw.githubusercontent.com/ymrabti/popup_menu_2/main/screen_0_2.jpg" width="220" alt="popup preview 2" />
+    <img src="https://raw.githubusercontent.com/ymrabti/popup_menu_2/main/screen_0_3.jpg" width="220" alt="popup preview 3" />
 </p>
 
 ## 📦 Installation

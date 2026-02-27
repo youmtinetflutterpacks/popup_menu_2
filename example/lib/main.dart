@@ -58,6 +58,10 @@ class _ModernShowcaseState extends State<ModernShowcase> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Image.asset('assets/logo.png'),
+        ),
         title: const Text('<DevDashboard />'),
         actions: [
           _buildGlassMenu(),
@@ -75,7 +79,7 @@ class _ModernShowcaseState extends State<ModernShowcase> {
               height: 250,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xFF42A5F5).withOpacity(0.15),
+                color: const Color(0xFF42A5F5).withValues(alpha: 0.15),
               ),
             ),
           ),
@@ -87,7 +91,7 @@ class _ModernShowcaseState extends State<ModernShowcase> {
               height: 350,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: const Color(0xFF22D3EE).withOpacity(0.1),
+                color: const Color(0xFF22D3EE).withValues(alpha: 0.1),
               ),
             ),
           ),
@@ -115,7 +119,7 @@ CustomPopupMenu(
                 ''',
                 style: TextStyle(
                   fontFamily: 'monospace',
-                  color: Colors.white.withOpacity(0.05),
+                  color: Colors.white.withValues(alpha: 0.05),
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
                 ),
@@ -132,9 +136,10 @@ CustomPopupMenu(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                   decoration: BoxDecoration(
-                    color: const Color(0xFF1E293B).withOpacity(0.5),
+                    color: const Color(0xFF1E293B).withValues(alpha: 0.5),
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.white.withOpacity(0.1)),
+                    border:
+                        Border.all(color: Colors.white.withValues(alpha: 0.1)),
                   ),
                   child: const Text(
                     'Tap the neon button below',
@@ -161,7 +166,7 @@ CustomPopupMenu(
       controller: _glassController,
       pressType: PressType.singleClick,
       arrowColor: const Color(0xFF1E293B), // Matches the glass base color
-      barrierColor: Colors.black.withOpacity(0.4),
+      barrierColor: Colors.black.withValues(alpha: 0.4),
       menuBuilder: () => ClipRRect(
         borderRadius: BorderRadius.circular(16),
         child: BackdropFilter(
@@ -169,15 +174,15 @@ CustomPopupMenu(
           child: Container(
             width: 220,
             decoration: BoxDecoration(
-              color: const Color(0xFF1E293B).withOpacity(0.7),
+              color: const Color(0xFF1E293B).withValues(alpha: 0.7),
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
-                color: Colors.white.withOpacity(0.15),
+                color: Colors.white.withValues(alpha: 0.15),
                 width: 1.5,
               ),
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withOpacity(0.5),
+                  color: Colors.black.withValues(alpha: 0.5),
                   blurRadius: 30,
                   offset: const Offset(0, 15),
                 ),
@@ -189,10 +194,10 @@ CustomPopupMenu(
               children: [
                 _buildGlassMenuItem(
                     Icons.code_rounded, 'View Source', const Color(0xFF22D3EE)),
-                Divider(color: Colors.white.withOpacity(0.1), height: 1),
+                Divider(color: Colors.white.withValues(alpha: 0.1), height: 1),
                 _buildGlassMenuItem(Icons.bug_report_rounded, 'Debug Mode',
                     const Color(0xFF42A5F5)),
-                Divider(color: Colors.white.withOpacity(0.1), height: 1),
+                Divider(color: Colors.white.withValues(alpha: 0.1), height: 1),
                 _buildGlassMenuItem(Icons.rocket_launch_rounded, 'Deploy',
                     const Color(0xFFE879F9)),
               ],
@@ -204,9 +209,9 @@ CustomPopupMenu(
         margin: const EdgeInsets.only(right: 8),
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(
-          color: const Color(0xFF1E293B).withOpacity(0.8),
+          color: const Color(0xFF1E293B).withValues(alpha: 0.8),
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: Colors.white.withOpacity(0.1)),
+          border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
         ),
         child: const Icon(Icons.more_vert_rounded, color: Color(0xFFF8FAFC)),
       ),
@@ -216,8 +221,8 @@ CustomPopupMenu(
   Widget _buildGlassMenuItem(IconData icon, String title, Color neonColor) {
     return InkWell(
       onTap: () => _glassController.hideMenu(),
-      splashColor: neonColor.withOpacity(0.2),
-      highlightColor: neonColor.withOpacity(0.1),
+      splashColor: neonColor.withValues(alpha: 0.2),
+      highlightColor: neonColor.withValues(alpha: 0.1),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
         child: Row(
@@ -245,8 +250,8 @@ CustomPopupMenu(
       targetWidgetKey: _contextualKey,
       maxColumns: 3,
       backgroundColor: const Color(0xFF1E293B),
-      highlightColor: const Color(0xFF22D3EE).withOpacity(0.2),
-      lineColor: Colors.white.withOpacity(0.05),
+      highlightColor: const Color(0xFF22D3EE).withValues(alpha: 0.2),
+      lineColor: Colors.white.withValues(alpha: 0.05),
       dismissOnClickAway: true,
       items: [
         ContextPopupMenuItem(
@@ -277,7 +282,7 @@ CustomPopupMenu(
           borderRadius: BorderRadius.circular(30),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFF22D3EE).withOpacity(0.4),
+              color: const Color(0xFF22D3EE).withValues(alpha: 0.4),
               blurRadius: 25,
               offset: const Offset(0, 10),
             ),

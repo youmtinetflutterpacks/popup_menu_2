@@ -2,6 +2,14 @@
 
 All notable changes to this package are documented in this file.
 
+## [0.1.7] - 2026-02-27
+- Updated version number to `0.1.7` for the next release cycle.
+- Update README: added demo links and updated the header image, and screenshots to better showcase the package features and design.
+- Modernize the example code with beautiful design and a more comprehensive showcase of the package features. See the updated README for details.
+- Add live web demo release and APK download links to the README.
+- Mugrate the example android to the latest Kotlin and Gradle versions for better compatibility and performance.
+- Downgrade the min dart SDK to 2.18.0 for better compatibility with older Flutter versions.
+
 ## [0.1.6]
 - Updated version number to `0.1.6` for the next release cycle.
 - Update README.
