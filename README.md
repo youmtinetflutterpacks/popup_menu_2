@@ -19,7 +19,7 @@ Lightweight and customizable Flutter popup menus designed to keep user attention
 
 [![Build status](https://github.com/ymrabti/popup_menu_2/workflows/Publish%20to%20pub.dev/badge.svg?style=flat&logo=github&colorB=&label=Build)](https://github.com/youmtinetflutterpacks/popup_menu_2)
 
-🌐 [Watch the demo web release](https://popup-menu-2-demo.youmti.net/) &nbsp;|&nbsp; 📦 [Download the latest APK](https://github.com/youmtinetflutterpacks/popup_menu_2/releases/latest/download/popup_menu_2_demo-release-universal.apk)
+🌐 [Watch the demo web release](https://popup-menu-2-demo.youmti.net/) &nbsp;|&nbsp; 📦 [Download the latest APK](https://github.com/youmtinetflutterpacks/popup_menu_2/releases/latest/download/popup-menu-2-release-universal.apk)
 </div>
 
 # This is a fork of [popup_menu](https://pub.dev/packages/popup_menu) by [@chinabrant](https://github.com/chinabrant)
