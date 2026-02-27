@@ -35,9 +35,9 @@ Lightweight and customizable Flutter popup menus designed to keep user attention
 ## 📸 Preview
 
 <p align="center">
-    <img src="https://raw.githubusercontent.com/ymrabti/popup_menu_2/main/screen_0_1.jpg" width="220" alt="popup preview 1" />
-    <img src="https://raw.githubusercontent.com/ymrabti/popup_menu_2/main/screen_0_2.jpg" width="220" alt="popup preview 2" />
-    <img src="https://raw.githubusercontent.com/ymrabti/popup_menu_2/main/screen_0_3.jpg" width="220" alt="popup preview 3" />
+    <img src="https://raw.githubusercontent.com/youmtinetflutterpacks/popup_menu_2/main/assets/screen_03.jpg" width="220" alt="popup preview 3" />
+    <img src="https://raw.githubusercontent.com/youmtinetflutterpacks/popup_menu_2/main/assets/screen_02.jpg" width="220" alt="popup preview 2" />
+    <img src="https://raw.githubusercontent.com/youmtinetflutterpacks/popup_menu_2/main/assets/screen_01.jpg" width="220" alt="popup preview 1" />
 </p>
 
 ## 📦 Installation
