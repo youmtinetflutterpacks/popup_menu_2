@@ -182,11 +182,14 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
           ),
         );
         return Listener(
-          behavior: widget.enablePassEvent ? HitTestBehavior.translucent : HitTestBehavior.opaque,
+          behavior: widget.enablePassEvent
+              ? HitTestBehavior.translucent
+              : HitTestBehavior.opaque,
           onPointerDown: (PointerDownEvent event) {
             Offset offset = event.localPosition;
             // If tap position in menu
-            if (_menuRect.contains(Offset(offset.dx - widget.horizontalMargin, offset.dy))) {
+            if (_menuRect.contains(
+                Offset(offset.dx - widget.horizontalMargin, offset.dy))) {
               return;
             }
             _controller?.hideMenu();
@@ -194,7 +197,8 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
             // but the passed event would trigger [showMenu] again.
             // So, we use time threshold to solve this bug.
             _canResponse = false;
-            Future<void>.delayed(const Duration(milliseconds: 300)).then((_) => _canResponse = true);
+            Future<void>.delayed(const Duration(milliseconds: 300))
+                .then((_) => _canResponse = true);
           },
           child: widget.barrierColor == Colors.transparent
               ? menu
@@ -236,7 +240,8 @@ class _CustomPopupMenuState extends State<CustomPopupMenu> {
     WidgetsBinding.instance.addPostFrameCallback((Duration call) {
       if (mounted) {
         _childBox = context.findRenderObject() as RenderBox?;
-        _parentBox = Overlay.of(context).context.findRenderObject() as RenderBox?;
+        _parentBox =
+            Overlay.of(context).context.findRenderObject() as RenderBox?;
       }
     });
   }
@@ -355,7 +360,8 @@ class _MenuLayoutDelegate extends MultiChildLayoutDelegate {
     } else if (anchorCenterX + contentSize.width / 2 > size.width) {
       menuPosition = isTop ? _MenuPosition.topRight : _MenuPosition.bottomRight;
     } else {
-      menuPosition = isTop ? _MenuPosition.topCenter : _MenuPosition.bottomCenter;
+      menuPosition =
+          isTop ? _MenuPosition.topCenter : _MenuPosition.bottomCenter;
     }
 
     switch (menuPosition) {
@@ -370,14 +376,16 @@ class _MenuLayoutDelegate extends MultiChildLayoutDelegate {
         );
         break;
       case _MenuPosition.bottomLeft:
-        arrowOffset = Offset(anchorCenterX - arrowSize.width / 2, anchorBottomY + verticalMargin);
+        arrowOffset = Offset(anchorCenterX - arrowSize.width / 2,
+            anchorBottomY + verticalMargin);
         contentOffset = Offset(
           0,
           anchorBottomY + verticalMargin + arrowSize.height,
         );
         break;
       case _MenuPosition.bottomRight:
-        arrowOffset = Offset(anchorCenterX - arrowSize.width / 2, anchorBottomY + verticalMargin);
+        arrowOffset = Offset(anchorCenterX - arrowSize.width / 2,
+            anchorBottomY + verticalMargin);
         contentOffset = Offset(
           size.width - contentSize.width,
           anchorBottomY + verticalMargin + arrowSize.height,
@@ -432,13 +440,17 @@ class _MenuLayoutDelegate extends MultiChildLayoutDelegate {
     if (hasChild(_MenuLayoutId.arrow)) {
       positionChild(
         _MenuLayoutId.arrow,
-        isBottom ? Offset(arrowOffset.dx, arrowOffset.dy + 0.1) : const Offset(-100, 0),
+        isBottom
+            ? Offset(arrowOffset.dx, arrowOffset.dy + 0.1)
+            : const Offset(-100, 0),
       );
     }
     if (hasChild(_MenuLayoutId.downArrow)) {
       positionChild(
         _MenuLayoutId.downArrow,
-        !isBottom ? Offset(arrowOffset.dx, arrowOffset.dy - 0.1) : const Offset(-100, 0),
+        !isBottom
+            ? Offset(arrowOffset.dx, arrowOffset.dy - 0.1)
+            : const Offset(-100, 0),
       );
     }
   }

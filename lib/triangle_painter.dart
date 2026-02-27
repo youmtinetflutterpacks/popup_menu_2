@@ -11,7 +11,8 @@ class TrianglePainter extends CustomPainter {
   Color color;
 
   /// Creates a [TrianglePainter].
-  TrianglePainter({this.isDown = true, this.color = const Color.fromARGB(0, 0, 0, 0)});
+  TrianglePainter(
+      {this.isDown = true, this.color = const Color.fromARGB(0, 0, 0, 0)});
 
   @override
   void paint(Canvas canvas, Size size) {

@@ -1,7 +1,8 @@
-# This is a fork of [popup_menu](https://pub.dev/packages/popup_menu) by [@chinabrant](https://github.com/chinabrant)
-<div align="center">
 
-# popup_menu_2
+<div align="center">
+<div align="center">
+    <img src="https://raw.githubusercontent.com/youmtinetflutterpacks/popup_menu_2/refs/heads/main/assets/readme_header.png" alt="popup_menu_2 logo"/>
+</div>
 
 Lightweight and customizable Flutter popup menus designed to keep user attention on the current context.
 
@@ -21,6 +22,7 @@ Lightweight and customizable Flutter popup menus designed to keep user attention
 
 </div>
 
+# This is a fork of [popup_menu](https://pub.dev/packages/popup_menu) by [@chinabrant](https://github.com/chinabrant)
 
 ## ✨ Highlights
 
